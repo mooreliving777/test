@@ -18,19 +18,34 @@ def clean(value):
 def get_titles(url):
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/rss+xml,application/atom+xml,application/xml,text/xml,*/*"})
     with urllib.request.urlopen(request, timeout=18) as response:
-        data = response.read(900000)
-    root = ET.fromstring(data)
-    items = root.findall(".//item")
-    if not items:
-        items = root.findall(".//{*}entry")
+        data = response.read(3500000)
     titles = []
-    for item in items:
-        title = item.findtext("title") or item.findtext("{*}title")
-        title = clean(title)[:155]
-        if title and title not in titles:
-            titles.append(title)
-        if len(titles) == 6:
-            break
+    try:
+        root = ET.fromstring(data)
+        items = root.findall(".//item")
+        if not items:
+            items = root.findall(".//{*}entry")
+        for item in items:
+            title = item.findtext("title") or item.findtext("{*}title")
+            title = clean(title)[:155]
+            if title and title not in titles:
+                titles.append(title)
+            if len(titles) == 6:
+                break
+    except ET.ParseError:
+        # Some very large feeds contain malformed markup or may be truncated
+        # after the opening items. Extract their title fields safely without
+        # trying to interpret content outside the headline tags.
+        start = re.search(rb"<(?:[a-z0-9_-]+:)?(?:item|entry)\\b", data, re.I)
+        if start:
+            for match in re.finditer(rb"<(?:[a-z0-9_-]+:)?title(?:\\s[^>]*)?>(.*?)</(?:[a-z0-9_-]+:)?title\\s*>", data[start.start():], re.I | re.S):
+                title = match.group(1).decode("utf-8", errors="replace")
+                title = title.replace("<![CDATA[", "").replace("]]>", "")
+                title = clean(title)[:155]
+                if title and title not in titles:
+                    titles.append(title)
+                if len(titles) == 6:
+                    break
     if not titles:
         raise RuntimeError("Feed returned no valid titles")
     return titles

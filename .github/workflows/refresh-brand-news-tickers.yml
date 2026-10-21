@@ -1,0 +1,30 @@
+name: Refresh Brand News Tickers
+on:
+  schedule:
+    - cron: '17 */3 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: brand-news-tickers-refresh
+  cancel-in-progress: false
+jobs:
+  update-tickers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Refresh public RSS headlines and animated SVG files
+        run: python brand-news-tickers/refresh.py
+      - name: Commit updated ticker artwork
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add brand-news-tickers/*.svg
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: refresh public RSS news tickers"
+            git push
+          fi

@@ -36,9 +36,9 @@ def get_titles(url):
         # Some very large feeds contain malformed markup or may be truncated
         # after the opening items. Extract their title fields safely without
         # trying to interpret content outside the headline tags.
-        start = re.search(rb"<(?:[a-z0-9_-]+:)?(?:item|entry)\\b", data, re.I)
+        start = re.search(rb"<(?:[a-z0-9_-]+:)?(?:item|entry)\b", data, re.I)
         if start:
-            for match in re.finditer(rb"<(?:[a-z0-9_-]+:)?title(?:\\s[^>]*)?>(.*?)</(?:[a-z0-9_-]+:)?title\\s*>", data[start.start():], re.I | re.S):
+            for match in re.finditer(rb"<(?:[a-z0-9_-]+:)?title(?:\s[^>]*)?>(.*?)</(?:[a-z0-9_-]+:)?title\s*>", data[start.start():], re.I | re.S):
                 title = match.group(1).decode("utf-8", errors="replace")
                 title = title.replace("<![CDATA[", "").replace("]]>", "")
                 title = clean(title)[:155]

@@ -1,0 +1,92 @@
+[
+  {
+    "slug": "fireworkstv",
+    "label": "FIREWORKS TV",
+    "strap": "ENTERTAINMENT NEWS  ●",
+    "background": "#12101C",
+    "accent": "#C88D5B",
+    "text": "#FFF4E9",
+    "labeltext": "#12101C",
+    "feed": "https://variety.com/feed/"
+  },
+  {
+    "slug": "citywebdesignpros",
+    "label": "CITY WEB DESIGN",
+    "strap": "WORDPRESS NEWS  ●",
+    "background": "#111820",
+    "accent": "#8CD9E8",
+    "text": "#E7EDF2",
+    "labeltext": "#111820",
+    "feed": "https://developer.wordpress.org/news/feed/"
+  },
+  {
+    "slug": "moorecomputersolutions",
+    "label": "MOORE COMPUTERS",
+    "strap": "SECURITY ALERTS  ●",
+    "background": "#111D29",
+    "accent": "#79E4BF",
+    "text": "#F0F5F5",
+    "labeltext": "#111D29",
+    "feed": "https://www.cisecurity.org/feed/advisories"
+  },
+  {
+    "slug": "theharshtruthclothing",
+    "label": "THE HARSH TRUTH",
+    "strap": "FASHION NEWS  ●",
+    "background": "#171719",
+    "accent": "#E6BC8D",
+    "text": "#F1ECE3",
+    "labeltext": "#171719",
+    "feed": "https://fashionunited.com/rss-news"
+  },
+  {
+    "slug": "moorelegacymanagement",
+    "label": "MOORE LEGACY",
+    "strap": "TALENT & TV NEWS  ●",
+    "background": "#111119",
+    "accent": "#FFD700",
+    "text": "#F8F4E8",
+    "labeltext": "#111119",
+    "feed": "https://variety.com/v/tv/feed/"
+  },
+  {
+    "slug": "thebridgetobetter",
+    "label": "BRIDGE TO BETTER",
+    "strap": "RECOVERY NEWS  ●",
+    "background": "#152724",
+    "accent": "#9DE0B4",
+    "text": "#F5F7F2",
+    "labeltext": "#152724",
+    "feed": "https://www.samhsa.gov/blog/rss"
+  },
+  {
+    "slug": "amandahalterman",
+    "label": "AMANDA HALTERMAN",
+    "strap": "TV & CULTURE  ●",
+    "background": "#24152D",
+    "accent": "#FFC0CB",
+    "text": "#FFF2FB",
+    "labeltext": "#24152D",
+    "feed": "https://variety.com/v/tv/feed/"
+  },
+  {
+    "slug": "leonardemoore",
+    "label": "LEONARD E. MOORE",
+    "strap": "BUSINESS & AI  ●",
+    "background": "#0A0A23",
+    "accent": "#FFD700",
+    "text": "#F5F4EC",
+    "labeltext": "#0A0A23",
+    "feed": "https://techcrunch.com/feed/"
+  },
+  {
+    "slug": "aideveloperportfolio",
+    "label": "AI DEVELOPER",
+    "strap": "OPEN-SOURCE NEWS  ●",
+    "background": "#10162B",
+    "accent": "#FFD700",
+    "text": "#F5F7FC",
+    "labeltext": "#10162B",
+    "feed": "https://github.blog/feed/"
+  }
+]

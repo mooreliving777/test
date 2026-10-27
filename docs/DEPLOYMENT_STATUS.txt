@@ -1,0 +1,5 @@
+Capital Readiness Studio public demo deployment trigger
+2026-10-27
+Only fictional example companies and illustrative data are present in the public demo.
+Entry point: /docs/index.html
+Pages configuration expected: branch master, folder /docs.

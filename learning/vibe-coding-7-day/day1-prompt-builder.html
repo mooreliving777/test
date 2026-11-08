@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#18062d">
+<meta name="description" content="Free, offline, beginner-friendly AI prompt builder for the Vibe Coding for Entrepreneurs 7-day challenge. No sign-in, network calls, or stored information.">
+<title>Prompt Lab — Build It. Test It. Own It.</title>
+<style>
+:root{color-scheme:dark;--bg:#16072a;--panel:#250e42;--white:#fffdf4;--lime:#ddff48;--pink:#ff5198;--cyan:#8ff7ff;--purple:#ae81ff;--muted:#d2c9e3;--line:rgba(255,255,255,.2);font-family:system-ui,-apple-system,'Segoe UI',Arial,sans-serif;line-height:1.5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--white);background:radial-gradient(ellipse at 92% 9%,#59217b 0,transparent 29%),radial-gradient(ellipse at 0% 55%,#351b64 0,transparent 32%),var(--bg)}
+a{color:var(--cyan)}a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--lime);outline-offset:4px}
+.skip{position:absolute;top:-70px;left:12px;background:var(--lime);color:#170429;padding:8px 14px;z-index:15}.skip:focus{top:12px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}header{border-bottom:1px solid var(--line);background:rgba(16,3,32,.75)}.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:15px 0}.brand{font-weight:1000;font-size:1.06rem;letter-spacing:-.045em;line-height:1.15;text-decoration:none;color:var(--white)}.brand em{color:var(--lime);font-style:normal}.navlink{text-decoration:none;border-bottom:2px solid var(--pink);font-size:.87rem;font-weight:750}
+.hero{position:relative;isolation:isolate;padding:66px 0 37px;overflow:hidden}.hero:before{position:absolute;content:'';width:350px;height:350px;border:52px solid rgba(255,81,152,.17);border-radius:50%;right:-135px;top:-198px;transform:rotate(-23deg);z-index:-1}.eyebrow{display:inline-flex;gap:9px;align-items:center;background:var(--lime);color:#1f0737;font-weight:950;letter-spacing:.065em;padding:6px 13px;text-transform:uppercase;font-size:.74rem;transform:rotate(-2deg)}h1,h2,h3{line-height:1.06;letter-spacing:-.065em}h1{font-size:clamp(3.6rem,9.7vw,7.9rem);margin:25px 0 19px;font-weight:1000;font-stretch:condensed;max-width:940px;text-transform:uppercase}h1 span{color:var(--lime);background:linear-gradient(105deg,var(--lime) 25%,var(--cyan) 70%);background-clip:text;-webkit-text-fill-color:transparent} .hero p{max-width:690px;font-size:clamp(1.06rem,2vw,1.35rem);color:#f0e7f7;margin:0}.spark{color:var(--pink)}.micro{display:flex;flex-wrap:wrap;gap:11px;margin:25px 0 0}.micro span{padding:5px 11px;border:1px solid rgba(255,255,255,.3);font-size:.78rem;font-weight:750;transform:skew(-4deg)}
+.main{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:22px;padding:14px 0 50px;align-items:start}.workshop{background:rgba(39,13,67,.84);border:1px solid #7f55b2;border-radius:27px 7px 27px 7px;box-shadow:12px 12px 0 rgba(255,81,152,.22);overflow:hidden}.headband{background:linear-gradient(104deg,var(--pink),#ff9155);color:#23072c;padding:17px 23px;font-weight:1000;letter-spacing:-.025em;text-transform:uppercase;display:flex;justify-content:space-between;gap:14px;align-items:center}.headband span:last-child{font-size:.78rem;letter-spacing:.02em}.fields{padding:20px 24px 24px}.helper{color:#d2c5e0;font-size:.85rem;margin:0 0 18px}label{font-size:.84rem;font-weight:850;display:block;margin:0 0 7px;letter-spacing:.01em}label b{color:var(--lime)}.field{margin:0 0 17px}input,textarea,select{width:100%;color:var(--white);font:inherit;background:#130724;border:1px solid #8a6aa5;padding:12px 13px;border-radius:8px;min-height:46px}input::placeholder,textarea::placeholder{color:#bcb0d0}textarea{resize:vertical;min-height:82px}select{appearance:auto}option{background:var(--bg)}.tiny{color:#c7bad4;display:block;font-size:.75rem;margin:5px 0 0}.row-two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.btn{font-weight:950;cursor:pointer;font:inherit;font-size:.92rem;border:0;padding:14px 19px;line-height:1.25;border-radius:7px 18px 7px 18px;min-height:46px;transition:transform .15s ease,box-shadow .15s ease}.btn:hover{transform:translateY(-2px)}.primary{background:var(--lime);color:#200633;box-shadow:5px 5px 0 var(--pink)}.secondary{color:var(--white);background:transparent;border:1px solid #aa8ac5}.outline{background:var(--cyan);color:#16072a}.preview{position:sticky;top:12px}.output{overflow:hidden;border-radius:8px 26px 8px 26px;background:#120621;border:1px solid rgba(143,247,255,.65);box-shadow:-9px 9px 0 rgba(143,247,255,.12)}.top{display:flex;align-items:center;justify-content:space-between;gap:14px;background:#292047;border-bottom:1px solid var(--line);padding:16px 19px}.dots{display:flex;gap:7px}.dots i{display:block;width:11px;height:11px;border-radius:50%;background:var(--pink)}.dots i:nth-child(2){background:var(--lime)}.dots i:nth-child(3){background:var(--cyan)}.terminal{font-size:.77rem;color:var(--muted);font-weight:750}.outputmain{padding:24px}.outputmain h2{font-size:clamp(1.6rem,3.8vw,2.8rem);margin:0 0 9px;color:var(--lime)}.outputmain p{color:#ddd1e9;margin:0 0 17px;font-size:.9rem}.progress{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-bottom:18px}.progress span{height:5px;border-radius:5px;background:#514070}.progress span.active{background:var(--lime)}.prompt{white-space:pre-wrap;word-break:break-word;min-height:240px;max-height:590px;overflow:auto;padding:18px;border-left:4px solid var(--cyan);background:#25173a;color:#f7f4ff;font: .86rem/1.6 ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',monospace}.outactions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.status{font-size:.84rem;color:var(--cyan);min-height:1.5em;margin:14px 0 0}.edu{margin:22px 0;background:linear-gradient(130deg,#472075,#2d154b);padding:18px 20px;border-radius:20px 7px 20px 7px;border-left:5px solid var(--pink)}.edu h3{margin:0 0 8px;font-size:1.4rem;color:var(--lime)}.edu p{margin:0;color:#f3ebfb;font-size:.85rem}.foot{border-top:1px solid var(--line);margin-top:30px;padding:24px 0 40px;color:#d5cae1;font-size:.81rem;display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap}.foot a{color:var(--lime)}
+@media(max-width:820px){.main{grid-template-columns:1fr}.preview{position:static}.hero{padding:41px 0 25px}.workshop{box-shadow:6px 6px 0 rgba(255,81,152,.22)}}@media(max-width:420px){.wrap{padding:0 14px}.nav{align-items:flex-start}.navlink{font-size:.76rem}.row-two{grid-template-columns:1fr}.fields{padding:18px}.headband{padding:13px 18px}.hero{padding-top:33px}h1{font-size:3.3rem}.outputmain{padding:18px}.actions .btn,.outactions .btn{flex:1 1 auto}.micro{gap:7px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#builder">Skip to prompt builder</a>
+<header><div class="wrap nav"><a class="brand" href="https://leonardemoorellc.wordpress.com/vibe-coding-start-here/">VIBE CODING <em>FOR ENTREPRENEURS</em></a><a class="navlink" href="https://leonardemoorellc.wordpress.com/vibe-coding-start-here/">Free learning hub</a></div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="eyebrow">Day 1 & 2 · The 7-day build challenge</div><h1>MAKE IT <span>MAKE SENSE.</span></h1><p>Your idea isn't a prompt yet. Turn it into clear instructions, useful boundaries, and tests <span class="spark">before</span> you ask AI to write code.</p><div class="micro"><span>100% offline</span><span>No signup</span><span>No paid AI</span><span>No saved data</span></div></div></section>
+<div class="wrap main">
+<section class="workshop" id="builder" aria-labelledby="builder-title"><div class="headband"><span id="builder-title">01 / Your builder brief</span><span>Fill it in ↓</span></div>
+<form id="promptForm" class="fields" novalidate>
+<p class="helper">Try the fictional Electric Bloom example, or replace it with a safe, invented project. Avoid real customer details, credentials, or API keys.</p>
+<div class="row-two"><div class="field"><label for="project">Project name <b>*</b></label><input id="project" name="project" maxlength="100" required value="Electric Bloom Studio"></div><div class="field"><label for="type">What are you building?</label><select id="type" name="type"><option>Website</option><option>Small web app</option><option>FAQ tool</option><option>Internal workflow demo</option></select></div></div>
+<div class="field"><label for="audience">Who is it for? <b>*</b></label><input id="audience" name="audience" maxlength="180" required value="Fictional small-business customers browsing on phones"><span class="tiny">Name the user, not “everyone.”</span></div>
+<div class="field"><label for="problem">What problem does it solve? <b>*</b></label><textarea id="problem" name="problem" maxlength="350" rows="2" required>Visitors need a simple way to understand sample design services and try an inquiry form.</textarea></div>
+<div class="field"><label for="result">What's the ONE successful result? <b>*</b></label><textarea id="result" name="result" maxlength="250" rows="2" required>Visitor understands the services and sees whether fictional inquiry details pass local form checks.</textarea></div>
+<div class="field"><label for="features">Three things someone can see or test <b>*</b></label><textarea id="features" name="features" maxlength="450" rows="3" required>Clear hero and navigation; three example services; local-only inquiry form and FAQ.</textarea></div>
+<div class="field"><label for="limits">What should AI NEVER add? <b>*</b></label><textarea id="limits" name="limits" maxlength="450" rows="3" required>Real customer storage, email sending, payments, accounts, live API integrations, fabricated testimonials, or hidden tracking.</textarea><span class="tiny">The builder automatically adds privacy, security, accessibility and review gates.</span></div>
+<div class="row-two"><div class="field"><label for="device">Main device</label><select id="device" name="device"><option value="Phone and desktop">Phone and desktop</option><option value="Phone first">Phone first</option><option value="Desktop first">Desktop first</option></select></div><div class="field"><label for="test">One extra test</label><input id="test" name="test" maxlength="230" value="Reject whitespace-only inputs and reset stale success feedback"></div></div>
+<div class="actions"><button class="btn primary" type="submit">⚡ Build my AI prompt</button><button type="button" class="btn secondary" id="reset">Restore demo</button><button type="button" class="btn secondary" id="clear">Clear all</button></div>
+<p class="status" id="formStatus" role="status" aria-live="polite"></p>
+</form></section>
+<aside class="preview" aria-label="Prompt output"><div class="output"><div class="top"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><span class="terminal">PROMPT-LAB / LOCAL ONLY</span></div><div class="outputmain"><h2>02 / Your AI instructions</h2><p id="previewIntro">Generate your prompt, then copy or download it. The example below is a safe fictional starter.</p><div class="progress" aria-hidden="true"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span></div><pre id="generatedPrompt" class="prompt" tabindex="0" aria-label="Generated AI prompt"></pre><div class="outactions"><button class="btn outline" id="copy" type="button">Copy prompt</button><button class="btn secondary" id="download" type="button">Download .txt</button></div><p id="outputStatus" class="status" role="status" aria-live="polite"></p></div></div>
+<div class="edu"><h3>TEST IT. DON'T JUST TRUST IT.</h3><p>First ask the AI for a plan. Review assumptions, request a tiny prototype, and check it at 320px and 390px. A demo form can validate fictional inputs without ever contacting a server. That is NOT a real customer intake system.</p></div>
+</aside>
+</div></main>
+<footer><div class="wrap foot"><div>© Vibe Coding for Entrepreneurs · Fictional classroom demo · No collected or transmitted form data.</div><div><a href="https://github.com/mooreliving777/test/blob/education/vibe-coding-electric-bloom-2026-11/learning/vibe-coding-7-day/README.md">Electric Bloom lesson</a> · <a href="https://www.facebook.com/groups/1418802503230092/">Free Facebook group</a></div></div></footer>
+<script>
+(() => {
+'use strict';
+const form = document.getElementById('promptForm');
+const output = document.getElementById('generatedPrompt');
+const status = document.getElementById('outputStatus');
+const formStatus = document.getElementById('formStatus');
+const intro = document.getElementById('previewIntro');
+const fields = [...form.querySelectorAll('input,textarea,select')];
+const defaults = Object.fromEntries(fields.map(field => [field.name,field.value]));
+const required = ['project','audience','problem','result','features','limits'];
+const val = name => (form.elements.namedItem(name).value || '').trim();
+function safeLine(str){return str.replace(/[\u0000-\u001f\u007f\u2028\u2029]/g,' ').replace(/\s+/g,' ').trim();}
+function createPrompt(){
+const lines = [
+'ROLE: You are an AI coding assistant working with a beginner. Teach as you build. Do not infer unstated business claims.',
+'',
+'PROJECT: '+safeLine(val('project'))+' ('+val('type')+')',
+'AUDIENCE: '+safeLine(val('audience')),
+'PROBLEM: '+safeLine(val('problem')),
+'GOAL: '+safeLine(val('result')),
+'REQUIRED FEATURES: '+safeLine(val('features')),
+'EXPLICIT LIMITS: '+safeLine(val('limits')),
+'PRIMARY DEVICE: '+val('device'),
+'',
+'SAFETY RULES:',
+'- This is a fictional practice project. Do not use or collect real customer information.',
+'- Do not add accounts, backend, outbound messaging, payments, paid APIs, secrets, trackers, or invented testimonials.',
+'- Keep the first version small, understandable, responsive, keyboard-usable, and free of unnecessary dependencies.',
+'- Explain data handling honestly. If a demo form is local-only, it must not claim to send messages.',
+'- Stop for human review before deployment, external connections, spending, or public launch.',
+'',
+'ACCEPTANCE CHECKS:',
+'1. At 320px and 390px widths: no sideways scrolling and readable text.',
+'2. A keyboard user can navigate the interactive elements and see visible focus.',
+'3. Links, buttons, and form validations behave as described with safe fictional inputs.',
+'4. Errors and success messages are accurate; no sensitive information leaves the browser.',
+'5. EXTRA CHECK: '+safeLine(val('test') || 'State one additional failure case and test it.'),
+'',
+'FIRST RESPONSE ONLY: Provide a page plan, suggested files, assumptions, risks, and step-by-step tests. Do NOT generate code or deploy anything until I approve that plan.'
+];
+return lines.join('\n');
+}
+function generate(showStatus=true){
+const missing = required.find(name => !val(name));
+if(missing){const el=form.elements.namedItem(missing);formStatus.textContent='Add a meaningful answer to: '+el.labels[0].textContent.replace('*','').trim()+'.';el.focus();return false;}
+formStatus.textContent='';output.textContent=createPrompt();if(showStatus)status.textContent='Prompt generated locally. Review it before using it with any AI tool.';intro.textContent='Your prompt is ready. Edit the answers and generate again before copying.';return true;
+}
+form.addEventListener('submit',e=>{e.preventDefault();generate();});
+form.addEventListener('input',()=>{status.textContent='Your answers changed. Select “Build my AI prompt” again to refresh the preview.';});
+document.getElementById('reset').addEventListener('click',()=>{fields.forEach(el=>{el.value=defaults[el.name]});generate(false);status.textContent='Fictional demo values restored.';});
+document.getElementById('clear').addEventListener('click',()=>{fields.forEach(el=>{if(el.tagName==='SELECT'){el.selectedIndex=0;}else{el.value='';}});output.textContent='Your prompt will appear here. Complete the required fields, then select “Build my AI prompt”.';status.textContent='All entered values cleared from the form. Nothing was stored or sent.';formStatus.textContent='';intro.textContent='Make a safe fictional project brief to begin.';form.elements.namedItem('project').focus();});
+document.getElementById('copy').addEventListener('click',async()=>{if(!output.textContent.startsWith('ROLE:')){status.textContent='Generate a complete prompt before copying.';return;}
+try{if(!navigator.clipboard || !navigator.clipboard.writeText)throw Error('Clipboard unavailable');await navigator.clipboard.writeText(output.textContent);status.textContent='Prompt copied to clipboard.';}catch(e){status.textContent='Clipboard permission unavailable. Select the prompt text and copy it manually.';output.focus();}
+});
+document.getElementById('download').addEventListener('click',()=>{if(!output.textContent.startsWith('ROLE:')){status.textContent='Generate a complete prompt before downloading.';return;}
+const blob=new Blob([output.textContent+'\n'],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');const url=URL.createObjectURL(blob);a.href=url;a.download='vibe-coding-builder-prompt.txt';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1200);status.textContent='Plain-text prompt download started locally.';});
+generate(false);
+})();
+</script>
+</body>
+</html>

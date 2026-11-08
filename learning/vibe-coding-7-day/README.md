@@ -4,6 +4,10 @@
 
 A fictional, single-file business landing-page demo built for the free [Vibe Coding for Entrepreneurs community](https://www.facebook.com/groups/1418802503230092/). This resource is for learning, **not** a production website, checkout, or customer-inquiry service.
 
+## NEW: Free Day 1–2 interactive AI Prompt Lab
+
+Use the [standalone offline Prompt Builder](./day1-prompt-builder.html) to turn a fictional business problem into a complete AI coding prompt with explicit guardrails and tests. Read the [Prompt Lab instructions and test notes](./PROMPT_LAB_README.md) first if you are new to saving HTML files. The builder has **no login, AI API, storage, analytics, or outbound network requests**. It generates text you can copy or download locally; it does not send a request to an AI provider.
+
 ## Start in under a minute
 
 1. Open [electric-bloom-demo.html](./electric-bloom-demo.html) in this GitHub folder.
